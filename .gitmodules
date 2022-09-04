@@ -1,3 +1,0 @@
-[submodule "src/components"]
-	path = src/components
-	url = git@gitlab.fw-iot.com:common/frontend/components.git
