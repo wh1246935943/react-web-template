@@ -1,0 +1,40 @@
+.user-mgt {
+  height: 100%;
+  .query-form {
+    // display: flex;
+    // align-items: center;
+    & > *:not(:last-child) {
+      margin-right: 15px;
+    }
+    button {
+      margin-left: auto;
+    }
+  }
+  .fw-table {
+    max-height: calc(100% - 54px);
+  }
+  .input-password {
+    padding-left: 10px;
+  }
+}
+.userModal {
+  .fw-level {
+    &.safe-level {
+      .item:nth-child(2) {
+        margin: 0 3px;
+      }
+      .item:nth-child(1) {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      .item:nth-child(3) {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+  .ant-modal-content .ant-input-affix-wrapper > input.ant-input {
+    padding: 0px 2px;
+  }
+}

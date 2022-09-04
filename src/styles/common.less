@@ -1,0 +1,158 @@
+.statuIcon(@color:pink) {
+  color: @color;
+  display: inline-block;
+  &::before {
+    content: ' ';
+    width: 10px;
+    height: 10px;
+    transform: translateY(1px);
+    border-radius: 5px;
+    border: 1px solid @color;
+    display: inline-block;
+    color: @color;
+    margin-right: 3px;
+    background-image: radial-gradient(@color 20%, #ffffff00 45%);
+  }
+}
+
+.common-EXITED,
+.common-HANDLE,
+.common-CANCELED,
+.common-CANCELD {
+  .statuIcon(#E8516F);
+}
+
+.common-ONLINE,
+.common-ENABLE,
+.common-ENABLED,
+.common-EXECUTED {
+  .statuIcon(#32da85);
+}
+.common-WARNING,
+.common-OFFLINE,
+.common-UNEXECUTED {
+  .statuIcon(#ff4d4f);
+}
+.common-WARING,
+.common-EXECUTING {
+  .statuIcon(#ffc74d);
+}
+
+.common-ONLINE {
+  .statuIcon(#52c41a);
+}
+.common-OFFLINE {
+  .statuIcon(#ff4d4f);
+}
+// 已取消
+.common-CANCELED {
+  .statuIcon(#00b4ff);
+}
+// 已关闭
+.common-DISABLED {
+  .statuIcon(#ff4d4f);
+}
+// 处理中
+.common-EXECUTING {
+  .statuIcon(#E5C452) !important;
+}
+// 已关闭
+.common-EXITED {
+  .statuIcon(#32da85);
+}
+// 处理中
+.common-CONFIRMING {
+  .statuIcon(#ff8585);
+}
+// 未处理
+.common-UNCONFIRM {
+  .statuIcon(#ef0000);
+}
+// 未处理
+.common-WARNING {
+  .statuIcon(#E8516F) !important;
+}
+// 未执行、未分配、未审核
+.common-UNEXECUTED,
+.common-DISARRANGE,
+.common-UNAUDIT {
+  .statuIcon(#ef5252);
+}
+// 执行中、审核未通过
+.common-EXECUTING,
+.common-FAILEDAUDIT {
+  .statuIcon(#fcff00);
+}
+// 已执行、审核通过
+.common-EXECUTED,
+.common-PASSAUDIT {
+  .statuIcon(#52d516);
+}
+// 报警中
+.common-WARING,
+.common-WARNING {
+  .statuIcon(#ffc74d);
+}
+// 报警任务
+.common-WARN,
+.common-TASK {
+  .statuIcon(#ef5252);
+}
+// 预警处理
+//未处理
+.common-UNPROCESSED {
+  .statuIcon(#E8516F);
+}
+// 处理中
+.common-PROCESSING {
+  .statuIcon(#E5C452);
+}
+// 已关闭
+.common-CLOSE {
+  .statuIcon(#32da85);
+}
+.common-relative {
+  position: relative;
+}
+.common-margin-bottom10 {
+  margin-bottom: 10px;
+}
+
+.common-formItem-margin-bottom10 {
+  .ant-form-item {
+    margin-bottom: 10px;
+  }
+}
+
+// 运维管理 运行状态字体颜色
+.status-ONLINE {
+  color: #32da85;
+}
+.status-OFFLINE {
+  color: #e8516f;
+}
+.status-ABNORMAL,
+.status-LOW_POWER,
+.status-LOW_SIGNED {
+  color: #e5c452;
+}
+
+// 全局缺省图尺寸
+.fw-empty-img {
+  max-width: 180px;
+  max-height: 180px;
+  min-width: 80px;
+  min-height: 80px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.react-viewer {
+  .react-viewer-btn {
+    background-color: rgb(255, 0, 0);
+    color: white;
+  }
+  .react-viewer-mask {
+    background-color: #00566538;
+  }
+}

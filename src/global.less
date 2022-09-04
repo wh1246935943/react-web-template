@@ -1,0 +1,32 @@
+@font-face {
+  font-family: login_page_title_zh; //自定义字体名称
+  src: url('./styles/font/login_page_titleZh.ttf');
+}
+@font-face {
+  font-family: login_page_en; //自定义字体名称
+  src: url('./styles/font/login_page_en.ttf');
+}
+@font-face {
+  font-family: zhi_jiao; //自定义字体名称
+  src: url('./styles/font/zhi_jiao.ttf');
+}
+// @font-face {
+//   font-family: default_font; //默认字体
+//   src: url('./styles/font/default_font.otf');
+// }
+
+@import './styles/initialization.less';
+
+html,
+body {
+  @import './styles/antd.less';
+  @import './styles/common.less';
+}
+
+#root {
+  min-width: 1366px;
+  min-height: 700px;
+  height: 100%;
+  color: #fff;
+  // font-size: 14px;
+}

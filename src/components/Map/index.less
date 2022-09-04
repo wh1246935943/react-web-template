@@ -1,0 +1,279 @@
+@keyframes zoomInAndOut {
+  0% {
+    transform: scale(0.1);
+  }
+  // 25%{ transform: scale(0.25) }
+  // 50%{ transform: scale(0.5) }
+  // 75%{ transform: scale(0.75) }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fw-map-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .map-legend {
+    display: inline-flex;
+    max-width: 80%;
+    width: unset;
+    height: auto;
+    position: absolute;
+    right: 50px;
+    bottom: 30px;
+    border: 1px dotted #00b2cd;
+    padding: 15px;
+    &.map-layer-legend_bottom {
+      right: 150px;
+    }
+    &::before {
+      content: '';
+      width: calc(100% + 7px);
+      height: calc(100% + 8px);
+      transform: translate(50%, -50%);
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      border-radius: 1px;
+      background: linear-gradient(to left, #00bdff, #00bdff) no-repeat left top,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat left top,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat right top,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat right top,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat left bottom,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat right bottom;
+      background-size: 67% 1px, 1px 100%, 1px 100%, 20% 1px, 20% 1px, 60% 1px;
+    }
+    &::after {
+      content: '';
+      width: calc(100% - 3px);
+      height: calc(100% - 3px);
+      position: absolute;
+      transform: translate(50%, -50%);
+      top: 50%;
+      right: 50%;
+      border-radius: 1px;
+      background: linear-gradient(to left, #00bdff, #00bdff) no-repeat left top,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat left top,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat right top,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat right top,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat left bottom,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat left bottom,
+        linear-gradient(to left, #00bdff, #00bdff) no-repeat right bottom;
+      background-size: 30% 1px, 1px 64%, 60% 1px, 1px 100%, 58% 1px, 1px 27%,
+        36% 1%;
+      box-shadow: 0px 0px 3px 0px #00b2cd inset;
+    }
+    .fwmap-legeng-item {
+      display: flex;
+      align-items: center;
+      &:not(:first-child) {
+        margin-top: 3px;
+      }
+      &::after {
+        content: attr(data-legeng);
+        margin-left: 10px;
+        transform: scale(0.8);
+      }
+      span {
+        display: inline-block;
+        width: 25px;
+        height: 8px;
+        border-radius: 2px;
+      }
+    }
+  }
+  .map-layer-legend {
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    &.map-layer-legend_top {
+      top: 30px;
+    }
+    &.map-layer-legend_middle {
+      top: 50%;
+      transform: translateY(-80%);
+    }
+    &.map-layer-legend_bottom {
+      bottom: 30px;
+    }
+    .map-layer-legend-basemap,
+    .map-layer-legend-extend {
+      .mll-item {
+        width: 100px;
+        height: 34px;
+        background-image: url('~./assets/map/legend_bg.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        font-size: 12px;
+        &.mll-item-a {
+          background-image: url('~./assets/map/legend_bg_a.png');
+        }
+        span {
+          transform: translatex(-10px);
+        }
+        &:not(:first-child) {
+          margin-top: 10px;
+        }
+        .mll-item_line {
+          position: absolute;
+          top: 20px;
+          right: 1px;
+          width: 1px;
+          height: 30px;
+        }
+      }
+      .mll-item:not(:last-child) {
+        .mll-item_line {
+          background-color: #01add3;
+        }
+      }
+    }
+    .map-layer-legend-extend {
+      margin-bottom: 25px;
+    }
+  }
+}
+.map-layout {
+  width: 100%;
+  height: 100%;
+  transition: none;
+  display: flex;
+  justify-content: flex-start;
+  &:not(:root) {
+    overflow: unset;
+  }
+
+  * {
+    transition: none;
+  }
+
+  &.can-hover {
+    path:hover {
+      opacity: 1 !important;
+      fill: #b2e3ef;
+    }
+  }
+
+  g {
+    width: 100%;
+    height: 100%;
+
+    // path {
+    //   opacity: 0;
+    //   fill: #001e47;
+    // }
+
+    #basic,
+    #basic_layer {
+      image {
+        width: 100%;
+      }
+    }
+
+    &#marker {
+      image:not([data-title]) {
+        cursor: pointer;
+      }
+
+      [data-title] {
+        pointer-events: none;
+      }
+
+      ellipse[out-circle_select] {
+        animation-name: zoomInAndOut;
+        animation-duration: alternate;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-duration: 0.7s;
+      }
+    }
+
+    &#tmpMarker {
+      image {
+        cursor: pointer;
+      }
+
+      text {
+        fill: #0ff;
+        cursor: pointer;
+      }
+
+      rect {
+        fill: rgb(2, 21, 56);
+      }
+    }
+  }
+
+  #basic {
+    pointer-events: none;
+    .basic-map_layer {
+      display: none;
+      &.basic-map_show {
+        display: block;
+      }
+    }
+  }
+
+  .map-shadow {
+    width: 100%;
+    height: 80px;
+    fill: rgb(2, 30, 81);
+  }
+}
+
+.mark-item-group {
+  cursor: pointer;
+  font-size: 16px;
+  g {
+    pointer-events: none;
+    font-size: 17px;
+  }
+  [last-data-mark-title] {
+    font-size: 18px;
+  }
+}
+
+.map-soil-axis {
+  line,
+  path {
+    stroke: #ffffff;
+    stroke-width: 1px;
+  }
+  text {
+    fill: #ffffff;
+    font-size: 16px;
+  }
+  .domain {
+    stroke: #ffffff;
+    stroke-width: 1px;
+  }
+}
+
+.mapSoil-ant-modal-wrap {
+  pointer-events: none;
+  .ant-modal-content {
+    background-color: #002967e6;
+  }
+  .soildata-content-rowItem {
+    display: flex;
+    justify-content: space-between;
+    div {
+      display: flex;
+      align-items: center;
+      color: @primary-color;
+      font-size: 18px;
+      .fw-icon {
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+.fw-weird-modal {
+  position: fixed;
+  top: 50%;
+  left: 530px;
+  transform: translateY(-50%);
+  padding: 15px 15px 15px 55px;
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 10px;
+  width: 1300px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 5px;
+  .left-fv-title {
+    position: absolute;
+    top: 50%;
+    left: 2.5px;
+    transform: translateY(-50%);
+    height: 205px;
+    width: 30px;
+    background: linear-gradient(
+          -135deg,
+          transparent 9px,
+          rgba(46, 143, 255, 0.9) 0
+        )
+        top right,
+      linear-gradient(-45deg, transparent 9px, rgba(46, 143, 255, 0.9) 0) bottom
+        right;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    display: inline-flex;
+    align-items: center;
+    writing-mode: vertical-rl;
+    justify-content: center;
+    font-size: 23px;
+    letter-spacing: 10px;
+  }
+  .fw-viewer_topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .right-opt {
+      display: flex;
+      justify-content: flex-end;
+      height: 40px;
+      .fw-antd-btn {
+        background-color: #00a9ff4d;
+        border: none;
+        height: 25px;
+        width: 85px;
+        color: #00ffff;
+        // font-size: 14px;
+        padding: 0;
+      }
+      .dropdown-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        .fw-icon {
+          margin-right: 10px;
+        }
+      }
+      .switch-show {
+        width: 70px;
+        height: 25px;
+        border: 10px;
+        background-color: #00a9ff4d;
+        border-radius: 10px;
+        margin-left: 20px;
+        i {
+          width: 35px;
+          height: inherit;
+          margin-left: 0;
+          background-size: 50%;
+          background-position: center;
+          border-radius: 10px;
+          &:nth-child(1) {
+            background-image: url('~./assets/switch_chart.png');
+          }
+          &:nth-child(2) {
+            background-image: url('~./assets/switch_table.png');
+          }
+          &.switch-show-seletced {
+            background-color: #00ffff80;
+          }
+        }
+      }
+      i {
+        margin-left: 15px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+        &.dowload {
+          background-image: url('~./assets/下载.png');
+        }
+        &.close {
+          background-image: url('~./assets/关闭.png');
+        }
+      }
+    }
+  }
+  .fw-weird-modal-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+    margin-top: 10px;
+    // img {
+    //   width: 100%;
+    // }
+  }
+}
+
+.fw-modal-show {
+  .ant-modal-content {
+    .ant-modal-body {
+      padding: 0 0 24px 0;
+      .ant-modal-confirm-body {
+        border-bottom: 1px solid #0096cc;
+        padding-bottom: 24px;
+        .ant-modal-confirm-title {
+          padding: 8px 24px;
+          background-image: linear-gradient(90deg, #1169a4, #033e86);
+        }
+        span[aria-label].anticon {
+          display: none;
+        }
+        .ant-modal-confirm-content {
+          margin-left: 0;
+          margin-top: 24px;
+        }
+      }
+    }
+  }
+}

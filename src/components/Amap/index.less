@@ -1,0 +1,72 @@
+.amap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .amap-react {
+    &.amap-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      img {
+        // width: 50px;
+        // height: 50px;
+      }
+      .amap-maps {
+        .amap-drags {
+          .amap-layers {
+            .amap-markers {
+              .amap-marker {
+                .amap-marker-content {
+                  .marker-info {
+                    .custom-marker {
+                      background-image: url('./assets/point_bg.png');
+                      background-repeat: no-repeat;
+                      background-size: 100% 100%;
+                      color: #00ffff;
+                      padding: 3px 10px 6px 14px;
+                      white-space: nowrap;
+                      margin-left: -10px;
+                    }
+                  }
+                  .marker-info:hover {
+                    transform: scale(1.1);
+                  }
+                }
+                .amap-marker-label {
+                  color: #333;
+                }
+              }
+            }
+          }
+          .amap-info-contentContainer {
+            padding-bottom: unset;
+            cursor: pointer;
+            .addPoint {
+              background: #2485e7;
+              border: 1px solid #9fd4fc;
+              box-shadow: 1px 2px 5px 0 #57575759;
+              width: 85px;
+              height: 40px;
+              line-height: 40px;
+              font-size: 14px;
+              border-radius: 5px;
+              text-align: center;
+            }
+            .addPoint::after {
+              content: '';
+              display: inline-block;
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-top: 10px solid #2485e7;
+              position: absolute;
+              top: 38px;
+              left: 33px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

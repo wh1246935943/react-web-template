@@ -1,0 +1,50 @@
+.basic-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url('~@/assets/global_bg.png'); // ~@/assets/global_bg.png
+  background-color: #025ab7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  .basic-main {
+    flex: 1;
+    overflow: hidden;
+    padding: 5px 15px 15px 15px;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    .fw-titleBar {
+      background: linear-gradient(to right, #012766, #0127661a);
+      padding: unset;
+      height: 28px;
+      .fw-titleBar-content {
+        border-top: unset;
+        border-bottom: unset;
+        padding: 5px 10px;
+        .ant-breadcrumb-separator {
+          color: #fff;
+        }
+      }
+      &::before {
+        background-image: linear-gradient(to right, #012766, #0127661a);
+        background: linear-gradient(to left, #00bdff, #00bdff) no-repeat left
+            top,
+          linear-gradient(to left, #00bdff, #00bdff) no-repeat right top,
+          linear-gradient(to left, #00bdff, #00bdff) no-repeat left bottom,
+          linear-gradient(to left, #00bdff, #00bdff) no-repeat right bottom;
+        background-size: 2px 2px, 0px 0px, 2px 2px, 0px 0px;
+        width: calc(100% - 5px);
+        height: calc(100% - 6px);
+      }
+    }
+
+    .basic-main-content {
+      margin-top: 5px;
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+}

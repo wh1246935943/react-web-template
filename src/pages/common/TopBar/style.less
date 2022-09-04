@@ -1,0 +1,174 @@
+.top-bar {
+  // 应该有一个最小高度
+  width: 100%;
+  height: 48px;
+  position: relative;
+  display: flex;
+  background-color: rgba(0, 1, 3, 0.3);
+  .topbar-left {
+    width: auto;
+    padding: 0 20px;
+    height: inherit;
+    align-items: center;
+    a {
+      display: flex;
+      height: inherit;
+      align-items: center;
+      img:nth-child(1) {
+        height: 34px;
+        width: 48px;
+      }
+      span {
+        display: block;
+        font-size: 20px;
+        text-align: center;
+        font-family: login_page_title_zh;
+        margin-left: 10px;
+        line-height: 20px;
+      }
+    }
+  }
+  .topbar-center {
+    flex: 1;
+    background: unset;
+    align-items: center;
+    .ant-menu-item {
+      &:hover {
+        background-image: linear-gradient(rgba(7, 7, 7, 0), #021850);
+        &::after {
+          border-bottom: unset;
+        }
+      }
+      &::after {
+        border-bottom: unset;
+      }
+    }
+    // .ant-menu-item:hover::after{
+
+    // }
+    .ant-menu-item-selected {
+      background-image: linear-gradient(rgba(7, 7, 7, 0), #021850);
+    }
+    &.ant-menu-horizontal {
+      border-bottom: unset;
+      > .ant-menu-submenu::after {
+        right: 5px;
+      }
+    }
+    .ant-menu-title-content {
+      margin-left: 3px;
+    }
+    .ant-menu-item-icon {
+      transform: translateY(4px);
+    }
+    .ant-menu-submenu {
+      padding: 0;
+      .ant-menu-submenu-title {
+        padding: 0 15px;
+        // width: 125px!important; // 菜单弹出层宽度
+        // min-width: unset;
+        // text-align: center;
+        .ant-menu-title-content {
+          // color: rgba(0,255,255,1);
+          .menu-root-dorpdown_icon {
+            width: 0;
+            height: 0;
+            border-top: 4px solid rgba(0, 255, 255, 1);
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            display: inline-block;
+            transform: translate(3px, -2px);
+          }
+          .ant-menu-submenu-arrow {
+            // right: unset
+          }
+        }
+      }
+      &::after {
+        display: none;
+      }
+      &:hover {
+        background-image: linear-gradient(
+          rgba(7, 7, 7, 0),
+          rgba(5, 5, 5, 0.137)
+        );
+      }
+      &.ant-menu-submenu-selected {
+        background-image: linear-gradient(rgba(7, 7, 7, 0), #021850);
+      }
+    }
+    /**
+     * 处理顶部菜单弹出层样式
+     */
+    .ant-menu-sub {
+      transform: translateY(
+        -8px
+      ) !important; // 菜单弹出层象上偏移，使得弹出层和顶部菜单条相连接
+      background-color: #021850 !important; // 菜单弹出层背景颜色
+      border-radius: 0 !important; // 菜单弹出层圆角
+      min-width: 130px;
+      // .ant-menu-submenu-title{
+
+      // }
+      // .ant-menu-item, .ant-menu-submenu-title{
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      // }
+      .ant-menu-submenu-selected {
+        background: rgba(0, 255, 255, 0.1); // 菜单弹出层中条目选中的背景色
+        background-image: unset !important; // 这里将背景色渐变置空
+      }
+      .ant-menu-submenu-title:hover {
+        // width: 120px!important;
+        // text-align: center!important;
+        background: rgba(
+          0,
+          255,
+          255,
+          0.1
+        ); // 菜单弹出层中条目鼠(指子菜单的父节点)标划过的背景色
+      }
+      .ant-menu-item:hover {
+        background: rgba(0, 255, 255, 0.1); // 菜单弹出层中条目鼠标划过的背景色
+      }
+      .ant-menu-item:active,
+      .ant-menu-submenu-title:active {
+        background: rgba(0, 255, 255, 0.1); // 菜单弹出层中条目鼠标按下的背景色
+      }
+    }
+  }
+  .topbar-right {
+    width: auto;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+
+    .icon {
+      width: 23px;
+      height: 23px;
+      display: inline-block;
+      background-size: cover;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+    .notice {
+      background-image: url('~@/assets/notice.png');
+    }
+    .user {
+      background-image: url('~@/assets/user.png');
+      margin-left: 20px;
+    }
+
+    .right-badge {
+      .ant-badge-multiple-words {
+        padding: 0 5px;
+      }
+      .ant-badge-count {
+        color: #fff;
+      }
+    }
+  }
+}

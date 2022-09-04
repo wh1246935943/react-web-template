@@ -1,0 +1,184 @@
+@fwcard-border-color: rgba(31, 99, 163, 1);
+
+.fw-card {
+  position: relative;
+  border: 2px solid @fwcard-border-color;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 8px solid rgba(0, 191, 191, 1);
+    border-left: 8px solid transparent;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    z-index: 99;
+  }
+  .fw-card-bg-icon {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    z-index: 99;
+    &.icon-left_up {
+      top: -2px;
+      left: -2px;
+    }
+    &.icon-right_up {
+      top: -2px;
+      right: -2px;
+      transform: rotate(90deg);
+    }
+    &.icon-left_down {
+      bottom: -2px;
+      left: -2px;
+      transform: rotate(270deg);
+    }
+    &.icon-right_down {
+      bottom: -2px;
+      right: -2px;
+      transform: rotate(180deg);
+    }
+  }
+  &.fw-card_full {
+    width: 100%;
+    height: 100%;
+  }
+  .fw-card_close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+  }
+  .fw-card_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #061b5d;
+    padding: 3px 5px;
+    box-sizing: border-box;
+    border-bottom: 2px solid @fwcard-border-color;
+    position: relative;
+    &::after {
+      content: '';
+      width: 100%;
+      height: 0;
+      border-top: 2px transparent solid;
+      border-image: linear-gradient(
+          to right,
+          @fwcard-border-color,
+          rgba(80, 252, 252, 1),
+          @fwcard-border-color
+        )
+        1 10;
+      position: absolute;
+      top: -2px;
+      right: -2px;
+    }
+    .fw-card_title_text {
+      line-height: 20px;
+      height: 20px;
+    }
+  }
+  .card-content {
+    position: relative;
+    // flex: 1;
+    height: calc(100% - 27px);
+    background: rgba(7, 22, 85, 0.6);
+    padding: 5px;
+    box-sizing: border-box;
+    .fw-card-empty-img {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.fw-contentcard {
+  background: rgba(7, 22, 85, 0.6);
+  position: relative;
+  border: 2px solid @fwcard-border-color;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  &::before {
+    content: '';
+    background: linear-gradient(to left, #00bdff, #00bdff) no-repeat left top,
+      linear-gradient(to left, #00bdff, #00bdff) no-repeat right top,
+      linear-gradient(to left, #00bdff, #00bdff) no-repeat left bottom,
+      linear-gradient(to left, #00bdff, #00bdff) no-repeat right bottom;
+    background-size: 2px 2px, 2px 2px, 2px 2px, 2px 2px;
+    width: calc(100% - 5px);
+    height: calc(100% - 6px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .fw-contentcard-container {
+    flex: 1;
+    overflow: hidden;
+  }
+}
+
+.fw-contentcard-title {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  .fw-contentcard-title_text {
+    height: 15px;
+    line-height: 15px;
+    .fw-ctt_required {
+      &::before {
+        display: inline-block;
+        margin-right: 4px;
+        color: #ff4d4f;
+        font-size: 12px;
+        line-height: 1;
+        content: '*';
+      }
+    }
+  }
+  .fw-contentcard-title_line {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+  }
+  &.fw-contentcard-title_sidesLine {
+    .fw-contentcard-title_text {
+      border-left: 2px solid rgba(0, 215, 255, 1);
+      border-right: 2px solid rgba(0, 215, 255, 1);
+      padding: 0 10px;
+      margin-right: 10px;
+    }
+    .fw-contentcard-title_line {
+      border-bottom: 1px solid rgba(0, 215, 255, 0.7);
+      height: 15px;
+      line-height: 15px;
+    }
+  }
+  &.fw-contentcard-title_bottomLine {
+    .fw-contentcard-title_text {
+      border-bottom: 3px solid #00d7ff;
+      padding: 0 3px;
+      line-height: 30px;
+      font-weight: 600;
+      height: 30px;
+    }
+    .fw-contentcard-title_line {
+      border-bottom: 2px solid #00d7ff;
+      height: 30px;
+      line-height: 30px;
+      border-image: linear-gradient(to right, #00d7ff -64%, #47b9da00 50%) 1 10;
+    }
+  }
+}
